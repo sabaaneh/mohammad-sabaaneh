@@ -51,6 +51,9 @@ async function main() {
     // 2. Ink murals (has .tif files that weren't processed)
     await processDir(path.join(ROOT, 'Mural ', 'Ink'), path.join(OUT, 'Mural', 'Ink'));
 
+    // Art (paintings)
+    await processDir(path.join(ROOT, 'Art'), path.join(OUT, 'Art'));
+
     // 3. Book pages
     const books = ['30 second from Gaza', 'Palestine White and Black', 'Power Born of Dream ', 'Welcome to hell'];
     for (const book of books) {

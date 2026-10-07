@@ -44,6 +44,7 @@ Sabaaneh web/              ← المصادر الأصلية (خارج git، ~2G
 | `books.html` + `book-<slug>.html` | مولّد. بيانات الكتب في ثابت `BOOKS` + `content/` |
 | `prints.html` | مولّد من `public/assets/prints/<مجموعة>` — Digital دائماً آخراً، زر تحميل `Sabaaneh_High.pdf` |
 | `news.html` | مولّد من `content/press.json` |
+| `art.html` | مولّد من `public/assets/Art` (المصدر `../Art/`، يضغطه `compress_missing.js`) |
 | `404.html` | مولّد |
 
 **لا تعدّل الصفحات المولّدة يدوياً** — التعديل يضيع عند التشغيل التالي. عدّل `generate_pages.js` أو `content/`.

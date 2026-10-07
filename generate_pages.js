@@ -15,6 +15,7 @@ const LINKS = [
     ['ink-murals.html', 'Ink Murals'],
     ['books.html', 'Books'],
     ['prints.html', 'Prints'],
+    ['art.html', 'Art'],
     ['news.html', 'News'],
     ['#contact', 'Contact'],
 ];
@@ -223,6 +224,16 @@ async function generateInkMurals() {
     const html = HEAD('Ink Murals') + NAV + `<main class="page" id="main">${pageHeader('Murals on paper', 'Ink Murals')}${gallerySection('Ink', imgs)}</main>` + FOOTER + CLOSE;
     await fs.writeFile(path.join(__dirname, 'ink-murals.html'), html);
     console.log('Generated ink-murals.html');
+}
+
+// ======================= ART =======================
+async function generateArt() {
+    const dir = path.join(__dirname, 'public', 'assets', 'Art');
+    const files = await getWebpFiles(dir);
+    const imgs = files.map(f => `<img src="./public/assets/Art/${f}" alt="Painting by Mohammad Sabaaneh" class="animate-up" loading="lazy">`).join('\n                ');
+    const html = HEAD('Art') + NAV + `<main class="page" id="main">${pageHeader('Paintings', 'Art')}${gallerySection('Paintings', imgs)}</main>` + FOOTER + CLOSE;
+    await fs.writeFile(path.join(__dirname, 'art.html'), html);
+    console.log('Generated art.html');
 }
 
 // ======================= BOOKS =======================
@@ -504,6 +515,7 @@ async function main() {
     await generateInkMurals();
     await generateBooks();
     await generatePrints();
+    await generateArt();
     await generateNews();
 }
 
